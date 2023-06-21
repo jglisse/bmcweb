@@ -21,6 +21,7 @@
 #include "cable.hpp"
 #include "certificate_service.hpp"
 #include "chassis.hpp"
+#include "component_integrity.hpp"
 #include "environment_metrics.hpp"
 #include "ethernet.hpp"
 #include "event_service.hpp"
@@ -53,6 +54,7 @@
 #include "thermal.hpp"
 #include "thermal_subsystem.hpp"
 #include "trigger.hpp"
+#include "trusted_component.hpp"
 #include "update_service.hpp"
 #include "virtual_media.hpp"
 
@@ -96,6 +98,9 @@ class RedfishService
         requestRoutesPowerSupplyCollection(app);
         requestRoutesThermalSubsystem(app);
 #endif
+        requestRoutesComponentIntegrityCollection(app);
+        requestRoutesComponentIntegrity(app);
+        requestRoutesComponentIntegritySPDMGetSignedMeasurementsAction(app);
         requestRoutesManagerCollection(app);
         requestRoutesManager(app);
         requestRoutesManagerResetAction(app);
@@ -108,6 +113,8 @@ class RedfishService
         requestRoutesChassisResetActionInfo(app);
         requestRoutesChassisDrive(app);
         requestRoutesChassisDriveName(app);
+        requestRoutesTrustedComponentCollection(app);
+        requestRoutesTrustedComponent(app);
         requestRoutesUpdateService(app);
         requestRoutesStorageCollection(app);
         requestRoutesStorage(app);
@@ -211,6 +218,8 @@ class RedfishService
         requestRoutesHTTPSCertificate(app);
         requestRoutesLDAPCertificate(app);
         requestRoutesTrustStoreCertificate(app);
+        requestRoutesSystemCertificateCollection(app);
+        requestRoutesSystemCertificate(app);
 
         requestRoutesSystemPCIeFunctionCollection(app);
         requestRoutesSystemPCIeFunction(app);
